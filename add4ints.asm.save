@@ -1,0 +1,28 @@
+## CS 254 Program 1 Fall 2022
+## 
+## Compute a + b + c + d
+## 
+## Programmer: Chhristiano Carta
+## Date: 09/19/2022
+## CS 254 Program 1 Fall 2022
+## 
+## Compute a + b + c + d
+## 
+## Programmer: Chhristiano Carta
+## Date: 09/19/2022
+
+
+.text               #Communicates to assembler that the following is ".text"
+.globl main         #Directive, stating main will be used outside this source file
+
+main:               #symbolic address for first machine instruction
+ori $8, $0, 0x1     #At run time instruction loads register 8 with 2's complement of positive one.
+ori $9, $0, 0x2     #At run time instruction loads register 9 with 2's complement of positive two
+ori $11, $0, 0x3    #At run time instruction loads register 11 with 2's complement of positive three.
+ori $12, $0, 0x4    #At run time instruction loads register 12 with 2's complement of positive four.
+addu $13, $8, $9    #At run time instruction loads register 13 with additive result of registers 8 and 9.
+addu $14, $11, $12  #At run time instruction loads register 14 with additive result of registers 11 and 12.
+addu $10, $13, $14  #At run time instruction loads register 10 with additive result of registers 13 and 14.
+
+
+##EOF               #End of file
