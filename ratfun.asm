@@ -37,6 +37,8 @@
 ##nop                                                                   #
 ##store quotient to ratio symbol                                        #
 ##store remainder to remain symbolic address                            #
+##nop                                                                   #
+##nop                                                                   #
 ##jump to end of program                                                #
 ##nop                                                                   #
 ##if condition = true, then                                             #
@@ -82,6 +84,8 @@ main:
     sll $0, $0, 0       #nop
     sw $1,8($10)        #store quotient to ratio symbolic address
     sw $2,12($10)       #store remainder to remainder symbolic address
+    sll $0, $0, 0       #nop
+    sll $0, $0, 0       #nop
     j  cont             #jump to end of program
     sll $0, $0, 0       #nop
 equal:                  #if (second equation == 0 ) is true 
@@ -91,7 +95,7 @@ equal:                  #if (second equation == 0 ) is true
 cont: sll $0, $0, 0     #condition true, end of program
 
     .data
-x:      .word 6         #address 0x10000000 , "x" will serve as x value
+x:      .word 3        #address 0x10000000 , "x" will serve as x value
 error:  .word 0         #address 0x10000004 , "error" set to 0
 ratio:  .word 0         #address 0x10000008 , "ratio" set to 0
 remain: .word 0         #address 0x1000000c , "remain" set to 0 
