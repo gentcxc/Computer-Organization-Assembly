@@ -9,11 +9,11 @@
 
 
     .text
-    .globl main
+    .globl maint
 
 main:
     lui, $10, 0x1000    #register 10 contains address 0x1000 (x)
-    lw   $11, 0($10)
+    lw   $11, 0($10)    #register 11=x
     or   $25, $0, 0x1   #load a 1 into register 29
     or   $8, $0, 0x8    #load an 8 into register 8, begin generating first parenthese
     mult $11, $8        #x(8)
@@ -33,22 +33,22 @@ main:
     sll $0, $0, 0       #nop
     sll $0, $0, 0       #nop
     addiu $6, $6, -15   #(x^2 + 2x)-15 , second parenthese done
-    beq $6, $0, equal
+    beq $6, $0, equal   #if equation 6 is equal to zero
     sll $0, $0, 0       #nop
-    div $5, $6
-    mflo $1
-    mfhi $2
-    sll $0, $0, 0       #nop
-    sll $0, $0, 0       #nop
-    sw $1,8($10)
-    sw $2,12($10)
-    j  cont            #jump to end of program
-    sll $0, $0, 0       #nop
-equal:
-    sw $25, 4($10)
+    div $5, $6          #equation 1 / equation 2
+    mflo $1             #put quotient in register 1
+    mfhi $2             #put remainder in register 2
     sll $0, $0, 0       #nop
     sll $0, $0, 0       #nop
-cont: sll $0, $0, 0
+    sw $1,8($10)        #store quotient to ration symbolic address
+    sw $2,12($10)       #store remainder to remainder symbolic address
+    j  cont             #jump to end of program
+    sll $0, $0, 0       #nop
+equal:                  #if (second equation == 0 ) is true 
+    sw $25, 4($10)      #store 1 to "error" symbolic address in memory
+    sll $0, $0, 0       #nop
+    sll $0, $0, 0       #nop
+cont: sll $0, $0, 0     #condition true, end of program
 
     .data
 x:      .word 6         #address 0x10000000 , "x" will serve as x value
