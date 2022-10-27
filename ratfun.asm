@@ -14,7 +14,7 @@
 main:
     lui, $10, 0x1000    #register 10 contains address 0x1000 (x)
     lw   $11, 0($10)
-    or   $29, $0, 0x1   #load a 1 into register 29
+    or   $25, $0, 0x1   #load a 1 into register 29
     or   $8, $0, 0x8    #load an 8 into register 8, begin generating first parenthese
     mult $11, $8        #x(8)
     mflo $5             #put product in register 5
@@ -45,7 +45,7 @@ main:
     j  cont            #jump to end of program
     sll $0, $0, 0       #nop
 equal:
-    sw $29, 4($10)
+    sw $25, 4($10)
     sll $0, $0, 0       #nop
     sll $0, $0, 0       #nop
 cont: sll $0, $0, 0
