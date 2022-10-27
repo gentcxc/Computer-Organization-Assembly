@@ -9,7 +9,7 @@
 
 
     .text
-    .globl maint
+    .globl main
 
 main:
     lui, $10, 0x1000    #register 10 contains address 0x1000 (x)
