@@ -1,11 +1,11 @@
-##CS 254                                            
-##
-##Compute even and odd sums leading up to n 
-##
-##Programmer: Christiano Carta
-##Date: November 2, 2022
+##CS 254                                             #
+##                                                   #
+##Compute even and odd sums leading up to n          #
+##                                                   # 
+##Programmer: Christiano Carta                       #
+##Date: November 2, 2022                             #
 ######################################################
-
+##                 
     .text
     .globl main
     
