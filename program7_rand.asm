@@ -2,14 +2,55 @@
 ##                                                  #
 ##Enter seed and how many random ints are desired.  #
 ##                                                  #
-##Programmer:                                       #
-##Date:                                             #
+##Programmer:Christiano Carta                       #
+##Date:11/17/2022                                   #
 ##                                                  #
 ##Register use table:                               #
-
-
-
-
+##$v0 set to print a string
+##choose string 
+##print string
+##$v0 set to read int
+##read int
+##put in in register
+##
+##$v0 set to print string
+##load string
+##print string
+##$v0 set to read int
+##read int
+##put int in register
+##add 1 to register, will be endcon
+##init constant
+##init constant
+##init constant
+##init counter to be used in loop
+##counter < endcon
+##  true
+##      seed x * constant(5)
+##      mv prodouct to register
+##      nop
+##      nop
+##      product + constant(53)
+##      sum / constant(100)
+##      get mod, put in register
+##      store mod in symbolic address
+##      set $v0 to print integer
+##      load symb address as int
+##      print integer to console
+##      set $v0 to print string
+##      load newline string
+##      print newline(neatens output)
+##      increment counter
+##      go to start of loop
+##  false
+##      break loop
+##
+##set $v0 to print string
+##load final string ("done")
+##print final string
+##set $v0 to exit
+##exit
+#####################################################
     .text 
     .globl main
 main:
