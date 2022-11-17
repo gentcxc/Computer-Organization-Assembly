@@ -13,15 +13,15 @@
     .text 
     .globl main
 main:
-    li $v0, 4                               ##
-    la $a0, string                          ##
-    syscall                                 ##
-    li $v0, 5                               ##
-    syscall                                 ##
-    move $t1, $v0                           ##
+    li $v0, 4                               ##prep syscall for print string
+    la $a0, string                          ##load string
+    syscall                                 ##print question
+    li $v0, 5                               ##prep syscall for read int
+    syscall                                 ##read int
+    move $t1, $v0                           ##put int in $t1
                                             ##
-    li $v0, 4                               ##
-    la $a0, string1                         ##
+    li $v0, 4                               ##prep syscall for print string
+    la $a0, string1                         ##load question
     syscall                                 ##print question
     li $v0, 5                               ##read int
     syscall                                 ##get amount of numbers desired
@@ -52,17 +52,17 @@ loopstrt:sltu $t5,$s7, $t2                  ##counter < endcon, $t5=1
         addiu $s7, 1                        ##increment counter
         j loopstrt                          ##back to start of loop
     
-endLP:                                      ##
-        li $v0, 4                           ##
-        la $a0, string2                     ##
-        syscall                             ##
+endLP:                                      ##endloop con
+        li $v0, 4                           ##prep syscall for print string
+        la $a0, string2                     ##load final string
+        syscall                             ##print final string
                                             ##
-        li $v0, 10                          ##
-        syscall                             ##
+        li $v0, 10                          ##prep syscall for exit
+        syscall                             ##exit
 .data
-string: .asciiz "\nInput Seed: "            ##
-string1: .asciiz "How Many? : "             ##
-string2: .asciiz "Done.\n"                  ##
-newline: .asciiz "\n"                       ##
-intx   : .word 0                            ##
+string: .asciiz "\nInput Seed: "            ##"Input Seed" for console printing
+string1: .asciiz "How Many? : "             ##"How Many" for console printing
+string2: .asciiz "Done.\n"                  ##"Done" for end of program console print
+newline: .asciiz "\n"                       ##newline character for formatting
+intx   : .word 0                            ##used for storing and printing integers in sequence
 
